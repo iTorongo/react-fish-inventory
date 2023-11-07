@@ -29,7 +29,9 @@ const TankHealthCard = ({ tank1, tank2 }: Props) => {
   };
   return (
     <Card>
-      <Typography className="text-xl text-slate-400">Tank Status</Typography>
+      <Typography className="text-xl text-slate-400 mb-3">
+        Tank Status
+      </Typography>
       <Typography variant="body" className="text-sm text-slate-500">
         Tank 1 Health Status
       </Typography>

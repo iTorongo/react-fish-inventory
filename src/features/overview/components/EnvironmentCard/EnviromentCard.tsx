@@ -3,7 +3,7 @@ import Card from "../../../../components/molecules/Card/Card";
 const EnvironmentCard = ({ weather, temperature, season }: Props) => {
   return (
     <Card>
-      <h4 className="text-xl text-slate-400">Environment</h4>
+      <h4 className="text-xl text-slate-400 mb-3">Environment</h4>
       <div className="flex items-end justify-between">
         <div>
           <span className="text-sm">Season</span>

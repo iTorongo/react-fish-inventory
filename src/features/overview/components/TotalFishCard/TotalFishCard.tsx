@@ -5,7 +5,7 @@ const TotalFishCard = ({ totalFish }: Props) => {
     <Card>
       <div className="flex items-end justify-between">
         <div>
-          <h4 className="text-xl text-slate-400">Total Fish Population</h4>
+          <h4 className="text-xl text-slate-400 mb-3">Total Fish Population</h4>
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {totalFish}
           </h4>
