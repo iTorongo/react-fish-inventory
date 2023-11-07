@@ -1,6 +1,13 @@
+import { Typography, Badge } from "../../../../components/atoms";
 import Card from "../../../../components/molecules/Card/Card";
+import { ISOToDefaultDateTimeFormat } from "../../../../helpers/utils.helpers";
+import { RecentHealthCheck } from "../../../../types";
 
-const BreedingCard = ({ successfulBreedingEvents, fryCount }: Props) => {
+const BreedingCard = ({
+  successfulBreedingEvents,
+  fryCount,
+  healthChecks,
+}: Props) => {
   return (
     <Card>
       <h4 className="text-xl text-slate-400 mb-3">Breeding Status</h4>
@@ -18,6 +25,25 @@ const BreedingCard = ({ successfulBreedingEvents, fryCount }: Props) => {
           </h4>
         </div>
       </div>
+      {!!healthChecks?.length && (
+        <h4 className="text-large text-slate-400 my-3">Health Status</h4>
+      )}
+      {healthChecks?.map((healthCheck) => {
+        return (
+          <div key={`${healthCheck?.time}`}>
+            <Badge
+              bgColor="green"
+              textColor="green"
+              text={healthCheck.status}
+              className="mb-1"
+            />
+
+            <Typography className="text-sm text-blue-400 mt-1">
+              Last Health Check: {ISOToDefaultDateTimeFormat(healthCheck?.time)}
+            </Typography>
+          </div>
+        );
+      })}
     </Card>
   );
 };
@@ -25,6 +51,7 @@ const BreedingCard = ({ successfulBreedingEvents, fryCount }: Props) => {
 interface Props {
   successfulBreedingEvents?: number;
   fryCount?: number;
+  healthChecks?: RecentHealthCheck[];
 }
 
 export default BreedingCard;

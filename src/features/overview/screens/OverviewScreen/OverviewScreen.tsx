@@ -1,3 +1,4 @@
+import { Loader } from "../../../../components/atoms";
 import { useFishInventory } from "../../../../hooks/useFishInventory";
 import BreedingCard from "../../components/BreedingCard/BreedingCard";
 import EnvironmentCard from "../../components/EnvironmentCard/EnviromentCard";
@@ -5,7 +6,11 @@ import TankHealthCard from "../../components/TankHealthCard/TankHealthCard";
 import TotalFishCard from "../../components/TotalFishCard/TotalFishCard";
 
 const OverViewScreen = () => {
-  const { data: fishInventoryResponse } = useFishInventory();
+  const { data: fishInventoryResponse, isLoading } = useFishInventory();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -18,6 +23,9 @@ const OverViewScreen = () => {
             fishInventoryResponse?.data.breedingStatus?.successfulBreedingEvents
           }
           fryCount={fishInventoryResponse?.data.breedingStatus?.fryCount}
+          healthChecks={
+            fishInventoryResponse?.data.healthMonitoring.recentHealthChecks
+          }
         />
         <TankHealthCard
           tank1={fishInventoryResponse?.data.tankHealth.tank1}
