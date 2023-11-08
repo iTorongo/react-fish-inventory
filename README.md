@@ -79,7 +79,7 @@ src/
 
 ## Development server
 
-Run `npm run dev` for a dev server. Navigate to `http://localhost:5172/`. The application will automatically update on browser with the efficient HMR of Vite if you change any of the source files.
+Run `npm run dev` for a dev server. Navigate to `http://localhost:5173/`. The application will automatically update on browser with the efficient HMR of Vite if you change any of the source files.
 
 ## Build
 
